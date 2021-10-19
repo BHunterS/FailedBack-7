@@ -1,0 +1,35 @@
+function maps() {
+    const iframes = [
+        '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3367.2993257632083!2d-97.77437848489735!3d32.437921881075674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e2063703a52bd%3A0x414b3f13247d8fb4!2zMTIwMCBDcmF3Zm9yZCBBdmUgYSwgR3JhbmJ1cnksIFRYIDc2MDQ4LCDQodCo0JA!5e0!3m2!1sru!2sua!4v1633883840084!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+        '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.4543341813005!2d-102.13714408483747!3d32.002804581212715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86fbd90bfc945f1b%3A0xcf6df98cbda06cf3!2zNDMwNCBBbmRyZXdzIEh3eSwgTWlkbGFuZCwgVFggNzk3MDMsINCh0KjQkA!5e0!3m2!1sru!2sua!4v1634055928413!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+        '<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3355.59401926466!2d-97.78576623481862!3d32.74996928098016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s907%20Eureka%20St%20102%20Weatherford%2C%20TX%2076086!5e0!3m2!1sru!2sua!4v1634056115406!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+        '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3383.4543341813005!2d-102.13714408483747!3d32.002804581212715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86fbd90bfc945f1b%3A0xcf6df98cbda06cf3!2zNDMwNCBBbmRyZXdzIEh3eSwgTWlkbGFuZCwgVFggNzk3MDMsINCh0KjQkA!5e0!3m2!1sru!2sua!4v1634056295659!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy"></iframe>',
+        '<iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3355.59401926466!2d-97.78576623481862!3d32.74996928098016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s907%20Eureka%20St%20102%20Weatherford%2C%20TX%2076086!5e0!3m2!1sru!2sua!4v1634056366958!5m2!1sru!2sua" style="border:0;" allowfullscreen="" loading="lazy"></iframe>'
+    ];
+
+    const maps = document.querySelectorAll('.map__sidebar-item');
+    const mapWindow = document.querySelector('.map__iframe');
+    const mapsCount = maps.length;
+
+    if (maps.length > 0) {
+
+        maps.forEach((item, index) => {
+
+            item.addEventListener('click', (event) => {
+
+                maps.forEach((item) => {
+                    item.classList.remove("_active");
+                });
+
+                item.classList.add('_active');
+
+                if (item.classList.contains('_active')) {
+                    console.log(mapWindow.innerHtml);
+                    mapWindow.innerHTML = iframes[index];
+                }
+            });
+        });
+    }
+}
+
+maps();
